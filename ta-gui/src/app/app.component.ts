@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ta-gui';
+  aluno: Aluno = {nome: "",cpf: "",email: ""};
+}
+
+export class Aluno {
+  nome: string | undefined;
+  cpf: string | undefined;
+  email: string | undefined;
 }
