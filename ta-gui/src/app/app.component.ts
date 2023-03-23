@@ -7,11 +7,12 @@ import { Component, NgModule } from '@angular/core';
 })
 export class AppComponent {
   title = 'ta-gui';
-  aluno: Aluno = {nome: "",cpf: "",email: ""};
+  aluno: Aluno = {nome: "",cpf: "",email: "", loginGithub:""};
 }
 
 export class Aluno {
   nome: string | undefined;
   cpf: string | undefined;
   email: string | undefined;
+  loginGithub: string | undefined;
 }
