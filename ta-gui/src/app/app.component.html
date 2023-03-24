@@ -21,3 +21,11 @@
     <td><input [(ngModel)]="aluno.email"></td>
   </tr>
 </table>
+
+<ul>
+  <li *ngFor="let a of alunos">
+    <span> - {{a.nome}}</span><br>
+    <span> - {{a.cpf}}</span><br>
+    <span> - {{a.email}}</span><br>
+  </li>
+</ul>
