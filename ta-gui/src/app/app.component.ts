@@ -1,26 +1,40 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 
 import { Aluno } from './aluno';
-import {AlunoService} from './aluno.service';
+import { AlunoService } from './aluno.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'ta-gui';
-  aluno: Aluno = {nome: "",cpf: "",email: ""};
-  alunoService = new AlunoService();
+
+  constructor(private alunoService: AlunoService){}
+
+  aluno: Aluno = new Aluno();
   alunos: Aluno[] = [];
+  cpfduplicado: boolean = false;
 
-  gravar(a: Aluno): void {
-    this.alunoService.gravar(a);
-    this.alunos.push(a);
+  criarAluno(a: Aluno): void {
 
-    this.aluno = {nome: "",cpf: "",email: ""};
+    if(this.alunoService.criar(a)){
+      this.alunos.push(a);
+      this.aluno = new Aluno();
+    }else {
+      this.aluno.cpf = "";
+      this.cpfduplicado = true;
+    }
   }
 
+  onMove(): void{
+    this.cpfduplicado = false;
+  }
+
+  ngOnInit(): void {
+    this.alunos = this.alunoService.getAlunos();
+  }
 }
 
 
