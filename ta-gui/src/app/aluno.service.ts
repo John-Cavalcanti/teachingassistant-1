@@ -25,4 +25,13 @@ export class AlunoService {
             }
         }
     }
+
+
+    getAlunos(): Aluno[] {
+        var result: Aluno[] = [];
+        for (let a of this.alunos) {
+            result.push(a.clone());
+        }
+        return result;
+    }
 }

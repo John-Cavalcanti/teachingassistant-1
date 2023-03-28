@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private alunoService: AlunoService) { }
   aluno: Aluno = new Aluno()
   alunos: Aluno[] = []
-  cpfduplicado: boolean = false
+  cpfduplicado: boolean = false;
 
   criarAluno(a: Aluno): void {
     if (this.alunoService.criar(a)) {
@@ -25,8 +25,5 @@ export class AppComponent {
   }
   onmove(): void {
     this.cpfduplicado = false;
-  }
-  atualizarAluno(aluno: Aluno): void {
-    this.alunoService.atualizar(aluno);
   }
 }
