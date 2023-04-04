@@ -1,15 +1,16 @@
-import { RouterModule } from '@angular/router';
-import { AlunosComponent } from './alunos.component';
-import { MetasComponent } from './metas.component';
-import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
+
+import { AlunosComponent } from './alunos.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlunoService } from './aluno.service';
-
+import { MetasComponent } from './metas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AlunoService } from './aluno.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
       path: 'metas',
