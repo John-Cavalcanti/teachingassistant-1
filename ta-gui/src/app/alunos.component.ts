@@ -27,6 +27,8 @@ export class AlunosComponent implements OnInit {
                 },
                 msg => { alert(msg.message); }
             );
+        
+            alert("Já executei o criar e o subscribe!");
     }
 
     onMove(): void {

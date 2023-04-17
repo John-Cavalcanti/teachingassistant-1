@@ -6,7 +6,9 @@ import { retry, map } from 'rxjs/operators';
 
 import { Aluno } from "../../../common/aluno";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AlunoService {
 
     private headers = new HttpHeaders({ 'Content-Type': 'application/json' });

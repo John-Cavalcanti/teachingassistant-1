@@ -1,41 +1,37 @@
-export class Aluno {
-    nome!: string;
-    cpf!: string;
-    email!: string;
-    metas: Map<string, string> | any;
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Aluno = void 0;
+class Aluno {
     constructor() {
         this.clean();
     }
-
-    clean(): void {
+    clean() {
         this.nome = "";
         this.cpf = "";
         this.email = "";
-        this.metas = new Map<string, string>();
+        this.metas = new Map();
     }
-
-    clone(): Aluno {
-        var aluno: Aluno = new Aluno();
+    clone() {
+        var aluno = new Aluno();
         aluno.copyFrom(this);
         return aluno;
     }
-
-    copyFrom(from: Aluno): void {
+    copyFrom(from) {
         this.nome = from.nome;
         this.cpf = from.cpf;
         this.email = from.email;
         this.copyMetasFrom(from.metas);
     }
-
-    copyMetasFrom(from: Map<string, string> | any): void {
+    copyMetasFrom(from) {
         if (from instanceof Map) {
-            this.metas = new Map<string, string>();
+            this.metas = new Map();
             for (const [key, value] of from) {
                 this.metas.set(key, value);
             }
-        } else {
+        }
+        else {
             this.metas = from;
         }
     }
 }
+exports.Aluno = Aluno;
